@@ -1,0 +1,41 @@
+{
+  "name": "hannenginvitation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clear": "rimraf dist",
+    "dev": "webpack-dev-server",
+    "build": "npm run clear && webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sansongwu/hannengInvitation.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sansongwu/hannengInvitation/issues"
+  },
+  "homepage": "https://github.com/sansongwu/hannengInvitation#readme",
+  "dependencies": {
+    "css-loader": "^2.1.1",
+    "fex-swiper": "^1.0.5",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-es2015-loose": "^8.0.0",
+    "cross-env": "^5.2.0",
+    "html-webpack-plugin": "^3.2.0",
+    "rimraf": "^2.6.3",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.2.1"
+  }
+}
