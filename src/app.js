@@ -45,6 +45,9 @@ const swiper = new Swiper({
 });
 
 /* 延迟测试 */
-setTimeout(() => {
-  swiper.swipeNext()
-}, 2000)
+// setTimeout(() => {
+//   swiper.swipeNext()
+// }, 2000)
+
+require('./pages/pageLoading')
+
