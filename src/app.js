@@ -2,8 +2,10 @@
 // const Swiper = require('../node_modules/fex-swiper/dist/swiper.umd');
 // debugger
 // console.log(Swiper)
-require('./scss/index.scss');
-const { loadingPage, pageOne, pageTwo, pageThree } = require('./getDOM')
+
+const { loadingPage, pageOne, pageTwo, pageThree, pageFour, pageFive, pageSix } = require('./getDOM')
+// const Rain = require('./rain')
+const { changePageDuration } = require('./config');
 
 // const Transition = {
 //   // 过渡动画名称，目前提供了 5 种过渡动画
@@ -14,8 +16,8 @@ const { loadingPage, pageOne, pageTwo, pageThree } = require('./getDOM')
 //   direction: 1 | -1 | 0,
 // }
 const defaultTransition = {
-  name: 'slide',
-  duration: 200,
+  name: 'fade',
+  duration: changePageDuration,
   direction: undefined
 }
 
@@ -24,30 +26,59 @@ const list = [{
   content: loadingPage,
   transition: {
     name: 'fade',
-    duration: 100,
+    duration: 200,
     direction: 0
   }
 }, {
   content: pageOne,
-  transition: Object.assign({}, defaultTransition, {direction: -1}) // 首页不能往上翻
+  transition: Object.assign({}, defaultTransition, { direction: -1 }) // 首页不能往上翻
 }, {
   content: pageTwo,
   transition: defaultTransition
 }, {
   content: pageThree,
-  transition: Object.assign({}, defaultTransition, {direction: 1}) // 尾页不能往下翻
+  transition: defaultTransition
+}, {
+  content: pageFour,
+  transition: defaultTransition
+}, {
+  content: pageFive,
+  transition: defaultTransition
+}, {
+  content: pageSix,
+  transition: Object.assign({}, defaultTransition, { direction: 1 }) // 尾页不能往下翻
 }];
 
-const swiper = new Swiper({
+/* 实例化滚动插件 */
+export const swiper = new Swiper({
   container: document.querySelector('#outer-container'),
   data: list,
   transition: defaultTransition // 全局transition
 });
+swiper.on('swipeStart', () => {
+  const currentPage = swiper.currentPage.index;
 
-/* 延迟测试 */
-// setTimeout(() => {
-//   swiper.swipeNext()
-// }, 2000)
+})
 
-require('./pages/pageLoading')
+swiper.on('swipeChanged', () => {
+  const currentPage = swiper.currentPage.index;
+
+  /* 进入第一页后 增加雨点效果 */
+  if (currentPage == 1) {
+    require('./rainInstance')
+  }
+  // .appendChild(document.querySelector('#rain_wrapper'))
+  const test = document.createElement('div')
+  swiper.currentPage.children[0].appendChild(document.querySelector('#rain_wrapper'))
+
+
+  if (currentPage == 3) {
+
+    document.querySelector('#rain_wrapper').style.display = 'block';
+
+  }
+  if (currentPage == 4) {
+    document.querySelector('#rain_wrapper').style.display = 'none';
+  }
+})
 

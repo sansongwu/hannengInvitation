@@ -4,7 +4,7 @@ const isDev = process.env.NODE_ENV === 'development' // 在启动node的时候�
 
 module.exports = {
     entry: {
-        app: path.join(__dirname, './src/app.js')  // 绝对路径 比较保险  __dirname当前文件的绝对路径
+        app: path.join(__dirname, './src/index.js')  // 绝对路径 比较保险  __dirname当前文件的绝对路径
     },
     output: {
         filename: '[name].[hash].js',

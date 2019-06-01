@@ -1,35 +1,67 @@
 .loading-page {
   width: 100%;
   height: 100%;
+  background-color: #3b3b3b;
   #pageLoading_bg {
+  }
+  .circle-container {
     position: absolute;
-    width: 100%;
-    height: 100%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: -1;
-  }
-  .circle-container {
+    // transform: translateY(-50%);
+    width: 10rem;
+    height: 10rem;
     .circle-border {
-      width: 10rem;
-      height: 10rem;
+      width: 100%;
+      height: 100%;
       box-sizing: border-box;
-      // background-color: red;
-      border: 2px solid white;
+      background: linear-gradient(to right bottom, #161616, #373737);
+      // border: 2px solid white;
       border-radius: 50%;
       position: relative;
       overflow: hidden;
+      /* 中间的黑圆 */
+      .black-circle {
+        width: 96%;
+        height: 96%;
+        border-radius: 50%;
+        // background-color: transparent;
+        background: linear-gradient(to right bottom, #161616, #373737);
+        position: absolute;
+        z-index: 3;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        span {
+          color: white;
+        }
+
+      }
       .circle {
-        width: 10rem;
-        height: 10rem;
-        background-color: red;
+        width: 100%;
+        height: 100%;
+        background-color: #ff2163;
         // border-radius: 50%;
         position: absolute;
+        z-index: 2;
         top: 990px;
         left: 0;
         // transform: translateY(100%);
       }
+      #ready_button {
+        width: 100%;
+        height: 100%;
+        display: none;
+        position: relative;
+        z-index: 4;
+      }
     }
+  }
+  .percent {
+    color: #ffffff;
   }
 }

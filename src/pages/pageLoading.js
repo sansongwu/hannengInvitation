@@ -1,31 +1,17 @@
 const { getPreLoadImage } = require('../utils');
 // import animate from "/animateplus.js";
-const animate = require('animateplus').default;
 const $ = require('jquery');
+const { swiper } = require('../app')
+const { winW, winH } = require('../screen');
 // debugger
-console.log(animate)
 
-/* 设置背景 */
-getPreLoadImage('http://img3.imgtn.bdimg.com/it/u=3798042709,2218577982&fm=26&gp=0.jpg', (img) => {
-  document.querySelector('#pageLoading_bg').src = img.src;
-  aboutPercent.add(14);
-})
 
-setTimeout(() => {
-  aboutPercent.add(14);
-}, 2000)
-// setTimeout(() => {
-//   aboutPercent.add(14);
-// }, 2000)
-// setTimeout(() => {
-//   aboutPercent.add(14);
-// }, 2000)
-// setTimeout(() => {
-//   aboutPercent.add(14);
-// }, 2000)
 
 const circle = document.querySelector('#circle');
+const circleContainer = document.querySelector('#circle_container')
 const circleHeight = circle.offsetHeight;
+const circleTop = circleContainer.offsetTop;
+let loadingReady = false;
 
 
 /* 百分比 */
@@ -34,49 +20,63 @@ const setPercent = () => {
   let percentArray = [];
   let animateRun = false;
   let lastPercent = 0;
+  let _ready = false;
+  let canStart = false // loading的背景和圈加载完 才可以出现loading效果
   return {
     add: (num) => {
-      if (percent >= 100) {
-        return
-      }
       percent += num;
-
       /* 满足条件发送通知loading完毕 */
-      if (percent >= 100) {
-        loadReady()
+      if (_ready) {
         return
       }
-      percentArray.unshift(num)
+      percentArray.unshift(percent)
       updatePercent()
     },
     percentArray,
     animateRun,
-    lastPercent
+    _ready
   }
 }
 export const aboutPercent = setPercent()
 
 /* 加载完成 */
 const loadReady = () => {
-  debugger
+  loadingReady = true;
+  document.querySelector('#ready_button').style.display = 'block'; // 显示黑圈图
+  /* 点击跳转页面 */
+  circleContainer.addEventListener('touchstart', () => {
+    const top = `${winH}`
+    $('#circle_container').animate({
+      top: top,
+      width: '100%',
+      height: winW
+    }, 200, function() {
+      swiper.swipeNext()
+    })
+    $('#pageLoading_bg2').animate({
+      opacity: 1
+    }, 200)
+  })
 }
 /* 更新百分比 */
 function updatePercent() {
   if (!aboutPercent.percentArray.length || aboutPercent.animateRun) {
     return
   }
-  const lastPosition = (1 - aboutPercent.lastPercent / 100) * 100;
-  const targetPosition = (1 - (aboutPercent.percentArray[0] + aboutPercent.lastPercent) / 100) * circleHeight;
-
+  const targetPercent = aboutPercent.percentArray[aboutPercent.percentArray.length - 1]
+  const targetPosition = targetPercent >= 100 ? 0 : (1 - targetPercent / 100) * circleHeight;
   aboutPercent.animateRun = true; // 开始动画
 
   $('#circle').animate({
-    top: targetPosition
+    top: (targetPosition + 'px')
   }, 200, function() {
+    if (targetPercent >= 100) { // 终止
+      aboutPercent._ready = true;
+      loadReady()
+      return
+    }
     aboutPercent.percentArray.pop();
     aboutPercent.animateRun = false; // 动画结束
-    aboutPercent.lastPercent = targetPosition;
-    debugger
     if (aboutPercent.percentArray.length) {
       updatePercent()
     }
