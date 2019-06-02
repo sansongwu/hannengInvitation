@@ -1,4 +1,5 @@
 const { getPreLoadImage } = require('./utils');
+const { winW } = require('./screen')
 require('./scss/index.scss');
 
 
@@ -11,13 +12,18 @@ getPreLoadImage('./public/img/loadingbg.jpg', (img) => {
 getPreLoadImage('./public/img/readyButton.png', (img) => {
   document.querySelector('#ready_button').src = img.src;
 
+
   require('./app')
   require('./prevLoadImage')
+
   require('./pages/pageLoading')
   require('./pages/page1')
   require('./pages/page2')
   require('./pages/page3')
   require('./pages/page4')
+  /* init */
+  window.onload = function () {
+  }
 })
 
 

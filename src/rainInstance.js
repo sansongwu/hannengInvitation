@@ -31,7 +31,7 @@
     needStop: false, // 是否中间停止
     stopPosition: getRandom(100, 500), // 在哪个位置停止
     stopTime: getRandom(500, 2000), // 停止时间
-    duration: getRandom(500, 1200) // 持续时间
+    duration: getRandom(1500, 2200) // 持续时间
   }));
 
   const rain2 = new Rain(Object.assign({}, defaultStyle, {
@@ -41,7 +41,7 @@
     needStop: false, // 是否中间停止
     stopPosition: getRandom(100, 500), // 在哪个位置停止
     stopTime: getRandom(500, 2000), // 停止时间
-    duration: getRandom(500, 1200) // 持续时间
+    duration: getRandom(1500, 2200) // 持续时间
   }));
 
   const rain3 = new Rain(Object.assign({}, defaultStyle, {
@@ -51,7 +51,7 @@
     needStop: false, // 是否中间停止
     stopPosition: getRandom(100, 500), // 在哪个位置停止
     stopTime: getRandom(500, 2000), // 停止时间
-    duration: getRandom(500, 1200) // 持续时间
+    duration: getRandom(1500, 2200) // 持续时间
   }));
 
   const rain4 = new Rain(Object.assign({}, defaultStyle, {
@@ -61,7 +61,7 @@
     needStop: false, // 是否中间停止
     stopPosition: getRandom(100, 500), // 在哪个位置停止
     stopTime: getRandom(500, 2000), // 停止时间
-    duration: getRandom(500, 1200) // 持续时间
+    duration: getRandom(1500, 2200) // 持续时间
   }));
 
   const rain5 = new Rain(Object.assign({}, defaultStyle, {
@@ -71,7 +71,7 @@
     needStop: false, // 是否中间停止
     stopPosition: getRandom(100, 500), // 在哪个位置停止
     stopTime: getRandom(500, 2000), // 停止时间
-    duration: getRandom(500, 1200) // 持续时间
+    duration: getRandom(1500, 2200) // 持续时间
   }));
 
   const rain6 = new Rain(Object.assign({}, defaultStyle, {
@@ -81,7 +81,7 @@
     needStop: false, // 是否中间停止
     stopPosition: getRandom(100, 500), // 在哪个位置停止
     stopTime: getRandom(500, 2000), // 停止时间
-    duration: getRandom(500, 1200) // 持续时间
+    duration: getRandom(1500, 2200) // 持续时间
   }));
 
   const rain7 = new Rain(Object.assign({}, defaultStyle, {
@@ -91,7 +91,7 @@
     needStop: false, // 是否中间停止
     stopPosition: getRandom(100, 500), // 在哪个位置停止
     stopTime: getRandom(500, 2000), // 停止时间
-    duration: getRandom(500, 1200) // 持续时间
+    duration: getRandom(1500, 2200) // 持续时间
   }));
 
   const rain8 = new Rain(Object.assign({}, defaultStyle, {
@@ -101,7 +101,7 @@
     needStop: false, // 是否中间停止
     stopPosition: getRandom(100, 500), // 在哪个位置停止
     stopTime: getRandom(500, 2000), // 停止时间
-    duration: getRandom(500, 1200) // 持续时间
+    duration: getRandom(1500, 2200) // 持续时间
   }));
 
   const rain9 = new Rain(Object.assign({}, defaultStyle, {
@@ -111,7 +111,7 @@
     needStop: false, // 是否中间停止
     stopPosition: getRandom(100, 500), // 在哪个位置停止
     stopTime: getRandom(500, 2000), // 停止时间
-    duration: getRandom(500, 1200) // 持续时间
+    duration: getRandom(1500, 2200) // 持续时间
   }));
 
   const rain10 = new Rain(Object.assign({}, defaultStyle, {
@@ -121,7 +121,7 @@
     needStop: false, // 是否中间停止
     stopPosition: getRandom(100, 500), // 在哪个位置停止
     stopTime: getRandom(500, 2000), // 停止时间
-    duration: getRandom(500, 1200) // 持续时间
+    duration: getRandom(1500, 2200) // 持续时间
   }));
 
   const rain11 = new Rain(Object.assign({}, defaultStyle, {
@@ -131,7 +131,7 @@
     needStop: false, // 是否中间停止
     stopPosition: getRandom(100, 500), // 在哪个位置停止
     stopTime: getRandom(500, 2000), // 停止时间
-    duration: getRandom(500, 1200) // 持续时间
+    duration: getRandom(1500, 2200) // 持续时间
   }));
 
   const rain12 = new Rain(Object.assign({}, defaultStyle, {
@@ -141,5 +141,5 @@
     needStop: false, // 是否中间停止
     stopPosition: getRandom(100, 500), // 在哪个位置停止
     stopTime: getRandom(500, 2000), // 停止时间
-    duration: getRandom(500, 1200) // 持续时间
+    duration: getRandom(1500, 2200) // 持续时间
   }));

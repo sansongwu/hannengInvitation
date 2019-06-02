@@ -1,1 +1,1 @@
-export const changePageDuration = 400;
+export const changePageDuration = 800;

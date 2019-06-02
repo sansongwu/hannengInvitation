@@ -3,6 +3,7 @@ const { getPreLoadImage } = require('../utils');
 const $ = require('jquery');
 const { swiper } = require('../app')
 const { winW, winH } = require('../screen');
+const audioAutoPlay = require('../music');
 // debugger
 
 
@@ -42,7 +43,19 @@ export const aboutPercent = setPercent()
 /* 加载完成 */
 const loadReady = () => {
   loadingReady = true;
+
   document.querySelector('#ready_button').style.display = 'block'; // 显示黑圈图
+  document.querySelector('#ready_button').style.opacity = '0';
+  $('#loading_text').animate({
+    opacity: 0
+  }, 400 ,function() {
+    $('#ready_button').animate({
+    opacity: 1
+  }, 400, function() {
+    audioAutoPlay(document.querySelector('#audio'));
+  })
+  })
+
   /* 点击跳转页面 */
   circleContainer.addEventListener('touchstart', () => {
     const top = `${winH}`

@@ -1,5 +1,7 @@
 const { getPreLoadImage } = require('./utils')
 const { aboutPercent } = require('./pages/pageLoading')
+const { winW, winH } = require('./screen');
+const { light } = require('./animate')
 
 /* 加载背景图 */
 getPreLoadImage('./public/img/page1.jpg', (img) => {
@@ -22,7 +24,7 @@ getPreLoadImage('./public/img/page4.jpg', (img) => {
   document.querySelector('#page4_bg').src = img.src;
   aboutPercent.add(10);
 })
-getPreLoadImage('./public/img/page5.png', (img) => {
+getPreLoadImage('./public/img/page5.jpg', (img) => {
   document.querySelector('#page5_bg').src = img.src;
   aboutPercent.add(10);
 })
@@ -47,10 +49,43 @@ getPreLoadImage('./public/img/page3bottom.png', (img) => {
   aboutPercent.add(20);
 })
 
-getPreLoadImage('./public/img/page4bottom.png', (img) => {
-  document.querySelector('#bottomImg4').src = img.src;
-  aboutPercent.add(10);
+
+/* 加载细节 */
+/* 前3页的 信息 */
+getPreLoadImage('./public/img/page1info.png', (img) => {
+  const target = document.querySelector('#page1_info')
+  target.src = img.src;
+  target.style.bottom = winW/2 + winW*10/100 + 'px';
+  target.style.opacity = 0;
 })
+getPreLoadImage('./public/img/page2info.png', (img) => {
+  const target = document.querySelector('#page2_info')
+  target.src = img.src;
+  target.style.bottom = winW/2 + winW*10/100 + 'px';
+  target.style.opacity = 0;
+})
+getPreLoadImage('./public/img/page3info.png', (img) => {
+  const target = document.querySelector('#page3_info')
+  target.src = img.src;
+  target.style.bottom = winW/2 + winW*10/100 + 'px';
+  target.style.opacity = 0;
+})
+/* 加载箭头 */
+getPreLoadImage('./public/img/arrow.png', (img) => {
+  const target = document.querySelector('#arrow')
+  target.src = img.src;
+  target.style.bottom = winW/2 - winW*5/100 + 'px';
+  target.style.width = winW*5/100 + 'px';
+  light('arrow')
+})
+/* 加载光 */
+getPreLoadImage('./public/img/light.png', (img) => {
+  const target = document.querySelector('#light')
+  target.src = img.src;
+  // target.style.top = winH*50/100 + 'px';
+  // light('arrow')
+})
+
 
 setTimeout(() => {
   aboutPercent.add(100);

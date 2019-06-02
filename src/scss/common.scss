@@ -19,3 +19,35 @@
   bottom: 0;
   z-index: 3;
 }
+
+/* 前3页信息 */
+.page-info {
+  position: absolute;
+  display: block;
+  width: 70%;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  z-index: 3;
+}
+/* 箭头 */
+.arrow {
+  position: absolute;
+  display: block;
+  width: 10%;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  z-index: 4;
+}
+/* 光 */
+.light {
+  position: absolute;
+  display: none;
+  width: 100%;
+  left: 50%;
+  top: 35%;
+  transform: translateX(-50%);
+  z-index: 4;
+
+}
