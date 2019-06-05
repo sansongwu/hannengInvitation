@@ -71,6 +71,7 @@ swiper.on('swipeChanged', () => {
   const test = document.createElement('div')
   swiper.currentPage.children[0].appendChild(document.querySelector('#rain_wrapper'))
   swiper.currentPage.children[0].appendChild(document.querySelector('#arrow'))
+  swiper.currentPage.children[0].appendChild(document.querySelector('#ring'))
 
 
 
@@ -83,12 +84,18 @@ swiper.on('swipeChanged', () => {
     document.querySelector('#rain_wrapper').style.display = 'none'; // 关闭雨点
     // document.querySelector('#light').style.display = 'block'; // 显示光 如果一开始就显示 会在开始的时候闪一下
     swiper.currentPage.children[0].appendChild(document.querySelector('#light')) // 移动光的DOM元素
+    swiper.currentPage.children[0].appendChild(document.querySelector('#bg_light')) // 移动光的DOM元素
+    swiper.currentPage.children[0].appendChild(document.querySelector('#bg_light2')) // 移动光的DOM元素
   }
   if (currentPage == 5) {
     swiper.currentPage.children[0].appendChild(document.querySelector('#light')) // 移动光的DOM元素
+    swiper.currentPage.children[0].appendChild(document.querySelector('#bg_light')) // 移动光的DOM元素
+    swiper.currentPage.children[0].appendChild(document.querySelector('#bg_light2')) // 移动光的DOM元素
   }
   if (currentPage == 6) {
     swiper.currentPage.children[0].appendChild(document.querySelector('#light')) // 移动光的DOM元素
+    swiper.currentPage.children[0].appendChild(document.querySelector('#bg_light')) // 移动光的DOM元素
+    swiper.currentPage.children[0].appendChild(document.querySelector('#bg_light2')) // 移动光的DOM元素
   }
   /* 前3页info fadein */
   const infoTarget = document.querySelector(`#page${currentPage}_info`);

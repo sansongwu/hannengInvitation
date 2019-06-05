@@ -7,7 +7,7 @@
     backgroundColor: '#ffffff',
     zIndex: '11',
     position: 'absolute',
-    opacity: '0.3',
+    opacity: '0.05',
   }
   /* 雨点运动过程设置 */
   const defaultAnimateSetting = {
