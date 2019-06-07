@@ -1,7 +1,7 @@
 const { getPreLoadImage } = require('./utils');
 const { winW } = require('./screen')
 require('./scss/index.scss');
-
+require('./wxShare');
 
 Promise.all([getPreLoadImage('./public/img/loadingbg.jpg'), getPreLoadImage('./public/img/readyButton.png')]).then((res) => {
   function sleep1(ms, callback) {
@@ -17,6 +17,7 @@ Promise.all([getPreLoadImage('./public/img/loadingbg.jpg'), getPreLoadImage('./p
     document.querySelector('#page4_bg').src = res[0].src;
     document.querySelector('#page5_bg').src = res[0].src;
     document.querySelector('#page6_bg').src = res[0].src;
+    document.querySelector('#page7_bg').src = res[0].src;
     require('./app')
     require('./prevLoadImage')
     require('./pages/pageLoading')

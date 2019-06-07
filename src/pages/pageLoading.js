@@ -82,7 +82,7 @@ function updatePercent() {
 
   $('#circle').animate({
     top: (targetPosition + 'px')
-  }, 200, function() {
+  }, 40, function() {
     if (targetPercent >= 100) { // 终止
       aboutPercent._ready = true;
       loadReady()

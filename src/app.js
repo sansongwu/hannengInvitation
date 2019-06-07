@@ -3,7 +3,7 @@
 // debugger
 // console.log(Swiper)
 
-const { loadingPage, pageOne, pageTwo, pageThree, pageFour, pageFive, pageSix } = require('./getDOM')
+const { loadingPage, pageOne, pageTwo, pageThree, pageFour, pageFive, pageSix, pageSeven } = require('./getDOM')
 // const Rain = require('./rain')
 const { changePageDuration } = require('./config');
 const $ = require('jquery')
@@ -46,6 +46,9 @@ const list = [{
   transition: defaultTransition
 }, {
   content: pageSix,
+  transition: defaultTransition
+}, {
+  content: pageSeven,
   transition: Object.assign({}, defaultTransition, { direction: 1 }) // 尾页不能往下翻
 }];
 
@@ -68,10 +71,14 @@ swiper.on('swipeChanged', () => {
     require('./rainInstance')
   }
   // .appendChild(document.querySelector('#rain_wrapper'))
-  const test = document.createElement('div')
+  // const test = document.createElement('div')
   swiper.currentPage.children[0].appendChild(document.querySelector('#rain_wrapper'))
-  swiper.currentPage.children[0].appendChild(document.querySelector('#arrow'))
-  swiper.currentPage.children[0].appendChild(document.querySelector('#ring'))
+  /* 移动箭头和动的环 */
+  if (currentPage != 7) {
+      swiper.currentPage.children[0].appendChild(document.querySelector('#arrow'))
+      swiper.currentPage.children[0].appendChild(document.querySelector('#ring'))
+  }
+
 
 
 
@@ -93,6 +100,11 @@ swiper.on('swipeChanged', () => {
     swiper.currentPage.children[0].appendChild(document.querySelector('#bg_light2')) // 移动光的DOM元素
   }
   if (currentPage == 6) {
+    swiper.currentPage.children[0].appendChild(document.querySelector('#light')) // 移动光的DOM元素
+    swiper.currentPage.children[0].appendChild(document.querySelector('#bg_light')) // 移动光的DOM元素
+    swiper.currentPage.children[0].appendChild(document.querySelector('#bg_light2')) // 移动光的DOM元素
+  }
+  if (currentPage == 7) {
     swiper.currentPage.children[0].appendChild(document.querySelector('#light')) // 移动光的DOM元素
     swiper.currentPage.children[0].appendChild(document.querySelector('#bg_light')) // 移动光的DOM元素
     swiper.currentPage.children[0].appendChild(document.querySelector('#bg_light2')) // 移动光的DOM元素
